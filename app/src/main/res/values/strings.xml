@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Soft Player</string>
+    <string name="onboarding_button">Let\'s Start</string>
 </resources>
