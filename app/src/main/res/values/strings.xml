@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Soft Player</string>
     <string name="onboarding_button">Let\'s Start</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="music_array">
+        <item>Adele - Someone Like You</item>
+        <item>The Score - Enemies</item>
+        <item>Imagine Dragons - Lonely</item>
+        <item>The Score - Born For This</item>
+        <item>Sasha Sloan - WTF</item>
+    </string-array>
 </resources>
