@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_padding">16dp</dimen>
+    <dimen name="big_padding">32dp</dimen>
+    <dimen name="music_min_height">36dp</dimen>
+    <dimen name="main_button_width">128dp</dimen>
+    <dimen name="main_button_height">128dp</dimen>
+    <dimen name="big_font_size">24sp</dimen>
+    <dimen name="submit_button_width">200dp</dimen>
+    <dimen name="submit_button_min_height">48dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
 </resources>

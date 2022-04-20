@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.newsoft.softplayer">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".application.ApplicationCore"
         android:allowBackup="true"
@@ -11,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoftPlayer">
         <activity
-            android:name="com.newsoft.softplayer.view.activity.MainActivity"
+            android:name=".view.activity.LyricsListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".view.activity.SearchActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
