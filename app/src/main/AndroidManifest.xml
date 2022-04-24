@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoftPlayer">
         <activity
-            android:name=".view.activity.LyricsListActivity"
+            android:name=".view.fragment.LibraryFragment"
             android:exported="false"/>
         <activity
-            android:name=".view.activity.SearchActivity"
+            android:name=".view.fragment.SearchFragment"
             android:exported="false"/>
         <activity
             android:name=".view.activity.MainActivity"

@@ -26,6 +26,7 @@ class MusicItemAdapter(private val listener: MusicItemClickListener): RecyclerVi
         val inflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_music_item, parent, false)
         return MusicItemViewHolder(inflater, listener)
+        
     }
 
     override fun onBindViewHolder(holder: MusicItemViewHolder, position: Int) {

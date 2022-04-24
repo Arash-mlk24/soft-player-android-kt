@@ -2,13 +2,16 @@ package com.newsoft.softplayer.view.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.newsoft.softplayer.R
 import com.newsoft.softplayer.databinding.ActivityMainBinding
+import com.newsoft.softplayer.view.fragment.LibraryFragment
+import com.newsoft.softplayer.view.fragment.SearchFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,66 +33,52 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.apply {
-            mainLyricsButton.setOnClickListener {
-                startLyricsActivity()
-            }
-            mainSearchButton.setOnClickListener {
-                startSearchActivity()
+
+            bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
+
+            loadFragment(SearchFragment())
+
+        }
+
+
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bottom_nav_search -> {
+                    // Respond to navigation item 1 click
+                    true
+                }
+                R.id.bottom_nav_library -> {
+                    // Respond to navigation item 2 click
+                    true
+                }
+                else -> false
             }
         }
 
     }
 
+    private val navigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            val fragment: Fragment
+            when (item.itemId) {
+                R.id.bottom_nav_library -> {
+                    fragment = LibraryFragment()
+                    loadFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.bottom_nav_search -> {
+                    fragment = SearchFragment()
+                    loadFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
 
-    private fun startLyricsActivity() {
-        val intent = Intent(this, LyricsListActivity::class.java)
-        startActivity(intent)
+    private fun loadFragment(fragment: Fragment) {
+        val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_constraint_layout, fragment)
+        fragmentTransaction.commit()
     }
-
-    private fun startSearchActivity() {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
-
-//    private val getResult =
-//        registerForActivityResult(
-//            ActivityResultContracts.StartActivityForResult()
-//        ) {
-//            if (it.resultCode == Activity.RESULT_OK) {
-//                it.data?.getStringExtra(MainActivityViewModel.EXTRA_REPLY)?.let { innerIt ->
-//                    val music = Music(innerIt)
-//                    musicViewModel.insert(music)
-////                    Toast.makeText(
-////                        applicationContext,
-////                        innerIt,
-////                        Toast.LENGTH_LONG
-////                    ).show()
-//                }
-//            } else {
-//                Toast.makeText(
-//                    applicationContext,
-//                    R.string.empty_not_saved,
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-//        }
-
-
-//    private fun initializeProperties() {
-//
-////        musicList = DataSource(this).getMusicList()
-//        recyclerView = findViewById(R.id.music_recycler_view)
-//        musicViewModel.allMusics.observe(this) {
-//            // Update the cached copy of the words in the adapter.
-//            recyclerView.adapter = MusicItemAdapter(it)
-//        }
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//
-//        binding.startButton.setOnClickListener {
-//            val intent = Intent(this@MainActivity, MainActivityViewModel::class.java)
-//            getResult.launch(intent)
-//        }
-//
-//    }
 
 }

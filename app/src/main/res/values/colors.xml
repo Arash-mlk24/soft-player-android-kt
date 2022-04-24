@@ -10,4 +10,6 @@
     <color name="buttonLabel">#FFFFFF</color>
     <color name="colorPrimary">#097DA0</color>
     <color name="colorPrimaryTint">#0D617A</color>
+    <color name="bottom_nav_back">#F9F9F9</color>
+    <color name="bottom_nav_inactive">#ABABAB</color>
 </resources>
