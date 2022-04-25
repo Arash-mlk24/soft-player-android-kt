@@ -1,4 +1,4 @@
-package com.newsoft.softplayer.framework.infrastructure.repository
+package com.newsoft.softplayer.framework.infrastructure.dao
 
 import androidx.room.*
 import com.newsoft.softplayer.framework.infrastructure.entity.Music

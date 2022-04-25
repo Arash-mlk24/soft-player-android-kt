@@ -5,9 +5,10 @@ import androidx.lifecycle.*
 import com.newsoft.softplayer.application.ApplicationCore
 import com.newsoft.softplayer.framework.infrastructure.dbcontext.AppDatabase
 import com.newsoft.softplayer.framework.infrastructure.entity.Music
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class LibraryFragmentViewModel(app: ApplicationCore) : AndroidViewModel(app) {
 
     var allMusics: MutableLiveData<List<Music>> = MutableLiveData()

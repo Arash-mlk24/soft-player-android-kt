@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.newsoft.softplayer.R
 import com.newsoft.softplayer.framework.infrastructure.entity.YoutubeVideo
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_youtube_video_item.view.*
 
 class YoutubeItemAdapter(private val listener: YoutubeItemClickListener): RecyclerView.Adapter<YoutubeItemAdapter.YoutubeItemViewHolder>() {

@@ -21,17 +21,3 @@ class Music(
     var id: Int = 0
 
 }
-
-//    (
-//
-//    @PrimaryKey(autoGenerate = true)
-//    @ColumnInfo(name = "musicId")
-//    private val id: Int,
-//
-//    @ColumnInfo(name = "name")
-//    val name: String,
-//
-//    @ColumnInfo(name = "lyrics")
-//    val lyrics: String,
-//
-//)

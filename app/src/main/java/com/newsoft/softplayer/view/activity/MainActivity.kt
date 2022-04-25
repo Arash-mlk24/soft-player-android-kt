@@ -12,8 +12,9 @@ import com.newsoft.softplayer.R
 import com.newsoft.softplayer.databinding.ActivityMainBinding
 import com.newsoft.softplayer.view.fragment.LibraryFragment
 import com.newsoft.softplayer.view.fragment.SearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     //    private val newMusicActivityRequestCode = 1

@@ -23,9 +23,11 @@ import com.newsoft.softplayer.framework.infrastructure.entity.Music
 import com.newsoft.softplayer.view.component.MusicItemAdapter
 import com.newsoft.softplayer.viewmodel.LibraryFragmentViewModel
 import com.newsoft.softplayer.viewmodel.LibraryFragmentViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_library.*
+import kotlin.reflect.KProperty
 
-
+@AndroidEntryPoint
 class LibraryFragment : Fragment(), MusicItemAdapter.MusicItemClickListener {
 
     private lateinit var mediaPlayer: MediaPlayer

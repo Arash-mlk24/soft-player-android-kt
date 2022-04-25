@@ -1,7 +1,6 @@
 package com.newsoft.softplayer.view.fragment
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,17 +18,15 @@ import com.newsoft.softplayer.databinding.FragmentSearchBinding
 import com.newsoft.softplayer.framework.infrastructure.entity.YoutubeVideo
 import com.newsoft.softplayer.view.component.YoutubeItemAdapter
 import com.newsoft.softplayer.viewmodel.SearchFragmentViewModel
-import com.newsoft.softplayer.viewmodel.SearchActivityViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment(), YoutubeItemAdapter.YoutubeItemClickListener {
 
     private lateinit var binding: FragmentSearchBinding
-    private val viewModel: SearchFragmentViewModel by viewModels {
-        SearchActivityViewModelFactory(
-            this.activity?.application ?: Application()
-        )
-    }
+    private val viewModel: SearchFragmentViewModel by viewModels()
     lateinit var youtubeItemAdapter: YoutubeItemAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,11 +39,17 @@ class SearchFragment : Fragment(), YoutubeItemAdapter.YoutubeItemClickListener {
         if (container != null) {
             bindView(inflater, container)
         }
+
         initializeBinding()
+
+        observeErrorText()
+
+        observeData()
 
         return binding.root
 
     }
+
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initializeBinding() {
@@ -59,7 +62,10 @@ class SearchFragment : Fragment(), YoutubeItemAdapter.YoutubeItemClickListener {
                 layoutManager = LinearLayoutManager(this@SearchFragment.activity)
                 youtubeItemAdapter = YoutubeItemAdapter(this@SearchFragment)
                 adapter = youtubeItemAdapter
-                val divider = DividerItemDecoration(this@SearchFragment.context, StaggeredGridLayoutManager.VERTICAL)
+                val divider = DividerItemDecoration(
+                    this@SearchFragment.context,
+                    StaggeredGridLayoutManager.VERTICAL
+                )
                 addItemDecoration(divider)
 
             }
@@ -82,25 +88,27 @@ class SearchFragment : Fragment(), YoutubeItemAdapter.YoutubeItemClickListener {
 
         }
 
+    }
 
-        // observe error text
-        viewModel.getErrorMessageObserver().observe(viewLifecycleOwner, Observer {
-
-            binding.searchErrorText.text = it
-            youtubeItemAdapter.notifyDataSetChanged()
-
-        })
-
-        // observe data
+    @SuppressLint("NotifyDataSetChanged")
+    private fun observeData() {
         viewModel.getDataObserver().observe(viewLifecycleOwner, Observer {
 
             youtubeItemAdapter.setListData(it as ArrayList<YoutubeVideo>)
             youtubeItemAdapter.notifyDataSetChanged()
 
         })
-
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private fun observeErrorText() {
+        viewModel.getErrorMessageObserver().observe(viewLifecycleOwner, Observer {
+
+            binding.searchErrorText.text = it
+            youtubeItemAdapter.notifyDataSetChanged()
+
+        })
+    }
 
     private fun bindView(inflater: LayoutInflater, container: ViewGroup) {
 

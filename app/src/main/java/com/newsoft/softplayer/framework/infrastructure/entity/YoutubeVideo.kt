@@ -3,6 +3,7 @@ package com.newsoft.softplayer.framework.infrastructure.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "youtube_videos")
 class YoutubeVideo(
@@ -16,6 +17,6 @@ class YoutubeVideo(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "music_id")
-    var id: Int = 0
+    var id: String = UUID.randomUUID().toString()
 
 }
