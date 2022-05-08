@@ -13,12 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoftPlayer">
         <activity
-            android:name=".view.fragment.LibraryFragment"
-            android:exported="false"/>
-        <activity
-            android:name=".view.fragment.SearchFragment"
-            android:exported="false"/>
-        <activity
             android:name=".view.activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FeedHeaderView">
+        <attr name="height" format="dimension" />
+        <attr name="width" format="dimension" />
+        <attr name="logged_in" format="boolean"/>
+    </declare-styleable>
+</resources>

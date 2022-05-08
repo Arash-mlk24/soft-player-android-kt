@@ -12,7 +12,10 @@
     <string name="search_input_hint">Search in Youtube</string>
     <string name="content_description">image</string>
     <string name="bottom_nav_search">Search</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_notification">Notification</string>
     <string name="bottom_nav_library">Library</string>
+    <string name="bottom_nav_profile">Profile</string>
     <string name="library_pause_button">Pause</string>
     <string name="library_play_button">Play</string>
     <string name="library_stop_button">Stop</string>

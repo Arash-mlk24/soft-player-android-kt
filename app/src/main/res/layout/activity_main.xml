@@ -52,6 +52,12 @@
 <!--            app:layout_constraintStart_toEndOf="@+id/main_lyrics_button"-->
 <!--            app:layout_constraintTop_toTopOf="@+id/main_lyrics_button" />-->
 
+        <Button
+            android:id="@+id/my_button"
+            android:text="=@{this.id}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
